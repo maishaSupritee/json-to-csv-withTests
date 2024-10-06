@@ -1,0 +1,11 @@
+[
+  {
+    "item_1": "value\t1",
+    "item_2": "value\n2",
+    "item_2": ["sub_value_31", "sub_value_32"]
+  },
+  {
+    "item_1": null,
+    "item_2": "value \"5\""
+  }
+]
