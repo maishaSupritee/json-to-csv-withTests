@@ -1,23 +1,23 @@
 {
-    "fruit":[
-        {
-            "name":"Lemon",
-            "genus":"Cucurbita",
-            "genus":"Citrus",
-            "family":"Rutaceae",
-            "recipes":{
-                "cooking":"Lemon Chicken\n",
-                "baking":["Lemon Pie", "Lemon \tCurd"]
-            }
-        },
-        {
-            "name":"Strawberry",
-            "genus":"Fragaria",
-            "family":"Rosaceae",
-            "recipes":{
-                "cooking": null,
-                "baking":["Strawberry Shortcake", ""]
-            }
-        }
-    ]
+  "fruit": [
+    {
+      "name": "Lemon",
+      "genus": "Cucurbita",
+      "genus": "Citrus",
+      "family": "Rutaceae",
+      "recipes": {
+        "cooking": "Lemon Chicken\n",
+        "baking": ["Lemon Pie", "Lemon \tCurd"]
+      }
+    },
+    {
+      "name": "Strawberry",
+      "genus": "Fragaria",
+      "family": "Rosaceae",
+      "recipes": {
+        "cooking": null,
+        "baking": ["Strawberry Shortcake", ""]
+      }
+    }
+  ]
 }
