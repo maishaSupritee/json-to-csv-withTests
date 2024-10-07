@@ -5,7 +5,7 @@ import re
 def fixture():
     test_files = []
     expected_outputs = []
-    nodes = ["fruit", "fruit"]
+    nodes = ["fruit"] * 11
 
     # Load all test files and corresponding expected output files
     for i in range(1, 12):

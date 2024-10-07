@@ -1,7 +1,7 @@
-"fruit_family","fruit_genus","fruit_name","fruit_recipes_baking_0","fruit_recipes_baking_1","fruit_recipes_cooking"
+"fruit_name","fruit_genus","fruit_family","fruit_recipes_cooking", "fruit_recipes_baking_0","fruit_recipes_baking_1"
 
-"Rutaceae","Citrus","Lemon","Lemon Pie","Lemon 	Curd","Lemon Chicken
-"
+"Lemon","Citrus","Rutaceae","Lemon Chicken
+","Lemon Pie","Lemon 	Curd",
 
-"Rosaceae","Fragaria","Strawberry","Strawberry Shortcake","","None"
+"Strawberry","Fragaria","Rosaceae","None","Strawberry Shortcake",""
 
