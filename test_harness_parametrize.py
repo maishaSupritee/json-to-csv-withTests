@@ -8,7 +8,7 @@ def fixture():
     nodes = ["fruit", "fruit"]
 
     # Load all test files and corresponding expected output files
-    for i in range(1, 11):
+    for i in range(1, 12):
         test_files.append(f'TestData/TestFiles/test_{i}.json')
         expected_outputs.append(f'TestData/ExpectedOutput/test_{i}.csv')
     
