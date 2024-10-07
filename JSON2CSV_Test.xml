@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System name="JSON2CSV_Test">
+  <Parameters>
+    <Parameter id="0" name="JSON_File_Structure" type="1">
+      <values>
+        <value>ARRAY</value>
+        <value>LIST</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="4" name="Node_Arg_Exists" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="5" name="JSON_Keys_Ordered_Alphabetically" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="7" name="Duplicate_Keys_Same_Obj" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="8" name="Duplicate_Keys_Diff_Obj" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="9" name="Unique_Keys" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="10" name="Contains_Regular_Input" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="11" name="Contains_Special_Chars" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="12" name="Contains_Null" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="13" name="Contains_Empty_Str" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="14" name="Array_List_Len" type="0">
+      <values>
+        <value>1</value>
+        <value>2</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="15" name="Obj_Dict_Len" type="0">
+      <values>
+        <value>1</value>
+        <value>2</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+  </Parameters>
+  <OutputParameters />
+  <Relations />
+  <Constraints>
+    <Constraint text="(JSON_File_Structure = &quot;LIST&quot;) =&gt; (Node_Arg_Exists = false)">
+      <Parameters>
+        <Parameter name="JSON_File_Structure" />
+        <Parameter name="Node_Arg_Exists" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(Unique_Keys = true) =&gt; (Duplicate_Keys_Same_Obj = false &amp;&amp; Duplicate_Keys_Diff_Obj = false)">
+      <Parameters>
+        <Parameter name="Unique_Keys" />
+        <Parameter name="Duplicate_Keys_Same_Obj" />
+        <Parameter name="Duplicate_Keys_Diff_Obj" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(Duplicate_Keys_Same_Obj = false &amp;&amp; Duplicate_Keys_Diff_Obj = false) =&gt; (Unique_Keys = true)">
+      <Parameters>
+        <Parameter name="Duplicate_Keys_Same_Obj" />
+        <Parameter name="Duplicate_Keys_Diff_Obj" />
+        <Parameter name="Unique_Keys" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(Obj_Dict_Len = 1) =&gt; (JSON_Keys_Ordered_Alphabetically = true)">
+      <Parameters>
+        <Parameter name="Obj_Dict_Len" />
+        <Parameter name="JSON_Keys_Ordered_Alphabetically" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(Obj_Dict_Len = 1 &amp;&amp; Contains_Empty_Str = true) =&gt; (Contains_Special_Chars = false &amp;&amp; Contains_Null = false &amp;&amp; Contains_Regular_Input = false)">
+      <Parameters>
+        <Parameter name="Obj_Dict_Len" />
+        <Parameter name="Contains_Empty_Str" />
+        <Parameter name="Contains_Special_Chars" />
+        <Parameter name="Contains_Null" />
+        <Parameter name="Contains_Regular_Input" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(Obj_Dict_Len = 1 &amp;&amp; Contains_Regular_Input = true) =&gt; (Contains_Special_Chars = false &amp;&amp; Contains_Null = false &amp;&amp; Contains_Empty_Str = false)">
+      <Parameters>
+        <Parameter name="Obj_Dict_Len" />
+        <Parameter name="Contains_Regular_Input" />
+        <Parameter name="Contains_Special_Chars" />
+        <Parameter name="Contains_Null" />
+        <Parameter name="Contains_Empty_Str" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(Obj_Dict_Len = 1 &amp;&amp; Contains_Special_Chars = true) =&gt; (Contains_Empty_Str = false &amp;&amp; Contains_Null = false &amp;&amp; Contains_Regular_Input = false)">
+      <Parameters>
+        <Parameter name="Obj_Dict_Len" />
+        <Parameter name="Contains_Special_Chars" />
+        <Parameter name="Contains_Empty_Str" />
+        <Parameter name="Contains_Null" />
+        <Parameter name="Contains_Regular_Input" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(Obj_Dict_Len = 1 &amp;&amp; Contains_Null = true) =&gt; (Contains_Empty_Str = false &amp;&amp; Contains_Special_Chars = false &amp;&amp; Contains_Regular_Input = false)">
+      <Parameters>
+        <Parameter name="Obj_Dict_Len" />
+        <Parameter name="Contains_Null" />
+        <Parameter name="Contains_Empty_Str" />
+        <Parameter name="Contains_Special_Chars" />
+        <Parameter name="Contains_Regular_Input" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(Contains_Regular_Input = false &amp;&amp; Contains_Special_Chars = false &amp;&amp; Contains_Null = false &amp;&amp; Contains_Empty_Str = false) =&gt; (Array_List_Len !=1 &amp;&amp; Array_List_Len !=2 &amp;&amp; Obj_Dict_Len != 1 &amp;&amp; Obj_Dict_Len != 2)">
+      <Parameters>
+        <Parameter name="Contains_Regular_Input" />
+        <Parameter name="Contains_Special_Chars" />
+        <Parameter name="Contains_Null" />
+        <Parameter name="Contains_Empty_Str" />
+        <Parameter name="Array_List_Len" />
+        <Parameter name="Obj_Dict_Len" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(Array_List_Len = 1) =&gt; (Duplicate_Keys_Diff_Obj = false)">
+      <Parameters>
+        <Parameter name="Array_List_Len" />
+        <Parameter name="Duplicate_Keys_Diff_Obj" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(Obj_Dict_Len = 1) =&gt; (Duplicate_Keys_Same_Obj = false)">
+      <Parameters>
+        <Parameter name="Obj_Dict_Len" />
+        <Parameter name="Duplicate_Keys_Same_Obj" />
+      </Parameters>
+    </Constraint>
+  </Constraints>
+  <Testset doi="2">
+    <Testcase TCNo="0">
+      <Value>1</Value>
+      <Value>ARRAY</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>2</Value>
+      <Value>2</Value>
+    </Testcase>
+    <Testcase TCNo="1">
+      <Value>2</Value>
+      <Value>ARRAY</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>2</Value>
+      <Value>2</Value>
+    </Testcase>
+    <Testcase TCNo="2">
+      <Value>3</Value>
+      <Value>LIST</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>2</Value>
+      <Value>2</Value>
+    </Testcase>
+    <Testcase TCNo="3">
+      <Value>4</Value>
+      <Value>ARRAY</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>1</Value>
+      <Value>2</Value>
+    </Testcase>
+    <Testcase TCNo="4">
+      <Value>5</Value>
+      <Value>LIST</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>1</Value>
+      <Value>2</Value>
+    </Testcase>
+    <Testcase TCNo="5">
+      <Value>6</Value>
+      <Value>LIST</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>1</Value>
+      <Value>2</Value>
+    </Testcase>
+    <Testcase TCNo="6">
+      <Value>7</Value>
+      <Value>ARRAY</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>2</Value>
+      <Value>2</Value>
+    </Testcase>
+    <Testcase TCNo="7">
+      <Value>8</Value>
+      <Value>ARRAY</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>1</Value>
+      <Value>1</Value>
+    </Testcase>
+    <Testcase TCNo="8">
+      <Value>9</Value>
+      <Value>LIST</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>2</Value>
+      <Value>1</Value>
+    </Testcase>
+    <Testcase TCNo="9">
+      <Value>10</Value>
+      <Value>LIST</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>2</Value>
+      <Value>1</Value>
+    </Testcase>
+    <Testcase TCNo="10">
+      <Value>11</Value>
+      <Value>ARRAY</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>2</Value>
+      <Value>1</Value>
+    </Testcase>
+  </Testset>
+  <Header>
+    <Value />
+    <Value>JSON_FILE_STRUCTURE</Value>
+    <Value>NODE_ARG_EXISTS</Value>
+    <Value>JSON_KEYS_ORDERED_ALPHABETICALLY</Value>
+    <Value>DUPLICATE_KEYS_SAME_OBJ</Value>
+    <Value>DUPLICATE_KEYS_DIFF_OBJ</Value>
+    <Value>UNIQUE_KEYS</Value>
+    <Value>CONTAINS_REGULAR_INPUT</Value>
+    <Value>CONTAINS_SPECIAL_CHARS</Value>
+    <Value>CONTAINS_NULL</Value>
+    <Value>CONTAINS_EMPTY_STR</Value>
+    <Value>ARRAY_LIST_LEN</Value>
+    <Value>OBJ_DICT_LEN</Value>
+  </Header>
+  <Stat-Data>
+    <ExecutionTime>0.059</ExecutionTime>
+    <MaxDomainSize>2</MaxDomainSize>
+    <MinDomainSize>2</MinDomainSize>
+    <TotalNoOfCombination>258</TotalNoOfCombination>
+    <TotalNoOfTests>11</TotalNoOfTests>
+    <Algorithm>IPOG</Algorithm>
+  </Stat-Data>
+</System>
+
