@@ -1,0 +1,18 @@
+[
+    {
+        "animal":"\t"
+        
+    },
+    {
+        "animal":"\n"
+      
+    },
+    {
+        "breed":"\r"
+    
+    },
+    {
+        "coat pattern":"\b"
+  
+    }
+  ]
